@@ -40,7 +40,7 @@ describe('rantai', () => {
   })
   it('mengubah satu blok merusak blok itu dan yang di belakangnya', () => {
     const blocks = seedChain('en')
-    blocks[1].data = 'Ayu bayar iuran Rp200.000'
+    blocks[1].data = 'Najwa bayar iuran Rp200.000'
     const derived = deriveChain(blocks, SEED_DIFFICULTY)
     expect(derived[0].valid).toBe(true)
     expect(derived.slice(1).every((b) => !b.valid)).toBe(true)
