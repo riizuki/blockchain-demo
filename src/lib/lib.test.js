@@ -83,30 +83,30 @@ describe('aturan peer', () => {
 
 describe('transaksi', () => {
   const makeChain = () => {
-    const first = { number: 1, nonce: 0, coinbase: { to: 'ayu', amount: REWARD }, txs: [] }
+    const first = { number: 1, nonce: 0, coinbase: { to: 'najwa', amount: REWARD }, txs: [] }
     return [first]
   }
   it('tanda tangan benar lolos, kunci orang lain gagal, nominal diubah gagal', () => {
-    const good = signTx({ from: 'ayu', to: 'budi', amount: 10, seq: 0 }, 'ayu')
+    const good = signTx({ from: 'najwa', to: 'budi', amount: 10, seq: 0 }, 'najwa')
     expect(verifyTx(good)).toBe(true)
-    expect(verifyTx(signTx({ from: 'ayu', to: 'budi', amount: 10, seq: 0 }, 'budi'))).toBe(false)
+    expect(verifyTx(signTx({ from: 'najwa', to: 'budi', amount: 10, seq: 0 }, 'budi'))).toBe(false)
     expect(verifyTx({ ...good, amount: 1000 })).toBe(false)
   })
   it('menolak saldo kurang dan pemutaran ulang', () => {
     const state = emptyState()
-    state.balance.ayu = 20
-    const pay = signTx({ from: 'ayu', to: 'budi', amount: 15, seq: 0 }, 'ayu')
+    state.balance.najwa = 20
+    const pay = signTx({ from: 'najwa', to: 'budi', amount: 15, seq: 0 }, 'najwa')
     const { accepted, rejected } = sortMempool([pay, pay], state)
     expect(accepted).toHaveLength(1)
     expect(rejected[0].issue).toBe('seqUsed')
-    const greedy = signTx({ from: 'ayu', to: 'budi', amount: 99, seq: 0 }, 'ayu')
+    const greedy = signTx({ from: 'najwa', to: 'budi', amount: 99, seq: 0 }, 'najwa')
     expect(sortMempool([greedy], state).rejected[0].issue).toBe('insufficient')
   })
   it('menghitung saldo dari hadiah dan transaksi', () => {
     const blocks = makeChain()
-    blocks.push({ number: 2, nonce: 0, coinbase: { to: 'budi', amount: REWARD }, txs: [signTx({ from: 'ayu', to: 'citra', amount: 20, seq: 0 }, 'ayu')] })
+    blocks.push({ number: 2, nonce: 0, coinbase: { to: 'budi', amount: REWARD }, txs: [signTx({ from: 'najwa', to: 'citra', amount: 20, seq: 0 }, 'najwa')] })
     const ledger = deriveLedger(blocks, 0)
-    expect(ledger.state.balance).toMatchObject({ ayu: 30, budi: 50, citra: 20, deni: 0 })
+    expect(ledger.state.balance).toMatchObject({ najwa: 30, budi: 50, citra: 20, deni: 0 })
     expect(ledger.blocks.every((b) => b.rulesOk)).toBe(true)
   })
   it('hadiah yang digelembungkan melanggar aturan walau hash-nya sah', () => {

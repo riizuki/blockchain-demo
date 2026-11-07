@@ -15,12 +15,12 @@ const seriesVar = (id) => `var(--s${PEOPLE.findIndex((p) => p.id === id) + 1})`
 
 function seedBlocks() {
   const raw = [
-    { number: 1, coinbase: { to: 'ayu', amount: REWARD }, txs: [] },
-    { number: 2, coinbase: { to: 'budi', amount: REWARD }, txs: [signTx({ from: 'ayu', to: 'citra', amount: 15, seq: 0 }, 'ayu')] },
+    { number: 1, coinbase: { to: 'najwa', amount: REWARD }, txs: [] },
+    { number: 2, coinbase: { to: 'budi', amount: REWARD }, txs: [signTx({ from: 'najwa', to: 'citra', amount: 15, seq: 0 }, 'najwa')] },
     {
       number: 3,
       coinbase: { to: 'citra', amount: REWARD },
-      txs: [signTx({ from: 'budi', to: 'deni', amount: 20, seq: 0 }, 'budi'), signTx({ from: 'citra', to: 'ayu', amount: 5, seq: 0 }, 'citra')],
+      txs: [signTx({ from: 'budi', to: 'deni', amount: 20, seq: 0 }, 'budi'), signTx({ from: 'citra', to: 'najwa', amount: 5, seq: 0 }, 'citra')],
     },
   ]
   let prev = ZERO_HASH
@@ -117,7 +117,7 @@ export default function LedgerPage() {
   const t = useT()
   const [blocks, setBlocks] = useState(seedBlocks)
   const [mempool, setMempool] = useState([])
-  const [from, setFrom] = useState('ayu')
+  const [from, setFrom] = useState('najwa')
   const [to, setTo] = useState('budi')
   const [amount, setAmount] = useState(10)
   const [signer, setSigner] = useState('auto')

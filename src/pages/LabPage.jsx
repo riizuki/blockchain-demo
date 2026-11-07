@@ -14,11 +14,11 @@ const MAP_SIZE = { width: 300, height: 260, cx: 150, cy: 122, r: 88 }
 const SPEEDS = [1, 3, 10, 30]
 
 const SCENARIOS = [
-  { id: 'healthy', blockTime: 6, latency: 0.4, powers: { ayu: 30, budi: 30, citra: 25, deni: 15, kancil: 0 } },
-  { id: 'slow', blockTime: 5, latency: 4, powers: { ayu: 30, budi: 30, citra: 25, deni: 15, kancil: 0 } },
-  { id: 'giant', blockTime: 6, latency: 0.4, powers: { ayu: 80, budi: 8, citra: 7, deni: 5, kancil: 0 } },
-  { id: 'attack20', blockTime: 4, latency: 0.3, powers: { ayu: 28, budi: 24, citra: 16, deni: 12, kancil: 20 } },
-  { id: 'attack55', blockTime: 4, latency: 0.3, powers: { ayu: 15, budi: 12, citra: 10, deni: 8, kancil: 55 } },
+  { id: 'healthy', blockTime: 6, latency: 0.4, powers: { najwa: 30, budi: 30, citra: 25, deni: 15, kancil: 0 } },
+  { id: 'slow', blockTime: 5, latency: 4, powers: { najwa: 30, budi: 30, citra: 25, deni: 15, kancil: 0 } },
+  { id: 'giant', blockTime: 6, latency: 0.4, powers: { najwa: 80, budi: 8, citra: 7, deni: 5, kancil: 0 } },
+  { id: 'attack20', blockTime: 4, latency: 0.3, powers: { najwa: 28, budi: 24, citra: 16, deni: 12, kancil: 20 } },
+  { id: 'attack55', blockTime: 4, latency: 0.3, powers: { najwa: 15, budi: 12, citra: 10, deni: 8, kancil: 55 } },
 ]
 
 function useMediaQuery(query) {

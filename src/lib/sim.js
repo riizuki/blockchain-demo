@@ -6,7 +6,7 @@ export const STEP = 0.05 // detik simulasi per langkah
 export const GIVE_UP_GAP = 6
 
 export const DEFAULT_MINERS = [
-  { id: 'ayu', power: 30 },
+  { id: 'najwa', power: 30 },
   { id: 'budi', power: 30 },
   { id: 'citra', power: 25 },
   { id: 'deni', power: 15 },

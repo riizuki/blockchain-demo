@@ -13,7 +13,7 @@ const wallet = (id) => {
   return { id, secret: bytesToHex(secret), publicKey: bytesToHex(secp256k1.getPublicKey(secret)) }
 }
 
-export const PEOPLE = ['ayu', 'budi', 'citra', 'deni'].map(wallet)
+export const PEOPLE = ['najwa', 'budi', 'citra', 'deni'].map(wallet)
 export const personById = Object.fromEntries(PEOPLE.map((p) => [p.id, p]))
 
 /** Teks yang ditandatangani. seq adalah nomor urut transaksi pengirim, penangkal pemutaran ulang. */

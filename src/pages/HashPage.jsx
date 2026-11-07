@@ -62,7 +62,7 @@ function PrefixGame() {
       <p className="muted">{t('hash.gameBody', { odds: count(16 ** zeros) })}</p>
       <label className="field">
         <span className="field-label">{t('hash.gameInput')}</span>
-        <input type="text" value={guess} onChange={(event) => onGuess(event.target.value)} spellCheck={false} placeholder="ayu1, ayu2, ayu3…" />
+        <input type="text" value={guess} onChange={(event) => onGuess(event.target.value)} spellCheck={false} placeholder="najwa1, najwa2, najwa3…" />
       </label>
       <div className="prefix-result">
         <HashText value={hash} difficulty={zeros} className={hit ? '' : 'hash-dim'} />
